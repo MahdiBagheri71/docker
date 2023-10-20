@@ -18,11 +18,14 @@ services:
           cpus: '0.5'
           memory: 1G
     volumes:
-      - ./files/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./files/default.conf:/etc/nginx/conf.d/default.conf
     networks:
       - app_docker
+      - golang-gin_golang_gin
 
 
 networks:
   app_docker:
     driver: bridge
+  golang-gin_golang_gin:
+    external: true
